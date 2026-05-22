@@ -103,7 +103,25 @@ _暂无_
 ### W5 · 后端 i18n（任务不变，更聚焦）
 > **W5 自报**：在此追加 Day N 进度。
 
-_暂无_
+#### Day 0 · 22:30 — 盘点完成
+- ✅ 创建分支 `feat/vivo-server-i18n`
+- ✅ 交付 `docs/i18n/WP-5-SERVER-I18N-AUDIT.md`
+- **关键结论**：上游 v0.3.5 **完全没有** server-side i18n
+  - 邮件 2 模板（验证码 / 邀请）全英文硬编码于 `server/internal/service/email.go`
+  - HTTP error message 共 **825 处** `writeError(w, status, "english")`，无 error code，无翻译机制
+  - `user.Language` 字段仅供前端 i18next，**服务端从不读**
+  - CLI / log 暂不在 i18n 范围（运维语义）
+  - 无重置密码邮件（passwordless）
+- **走分支 ②**（上游未做）：vivo fork 立刻落地 P0/P1，长期方案抽成 PR-B 给 W7
+- 优先级：**P0** 邮件中文化 → **P1** error message 拦截层 + 50 条高频翻译表 → P3 CLI 不动
+- 阻塞 / 依赖：邮件文案待 W4 走查；W7 PR-B 等本审计 + P1 拦截层落地
+
+#### 待办（Day 1-5）
+- Day 1：`email.go` 加 locale 分支 + zh-Hans 模板 + 单测
+- Day 2：邮件 PR 草稿 + 翻译草案交 W4
+- Day 3：error 拦截层 + 50 条翻译表
+- Day 4：扩 ~150 条 + 等 W1 部署完联调真实邮件
+- Day 5：抽象为上游 PR-B 提案文，交付 W7
 
 #### 任务书摘要（WP-5）
 1. **盘点**：上游有没有 server-side i18n？查 `server/` 目录的邮件模板、错误码、HTTP response message
