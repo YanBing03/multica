@@ -226,3 +226,18 @@ _暂无_
 - **Day 0 · 21:30** — 巡查发现：W1 未启动 / W4 已交付 TERMS（部分）/ W7 已交付 CHECKLIST + REBASE 脚本；处理多窗根目录 STATUS.md 冲突；代办 git clone + 建分支；写 W0-DECISIONS v1（D-001~D-006）+ STATUS v1
 - **Day 0 · 22:00** — 核查仓库现状，发现 v0.3.5 上游已完整接入 i18next + zh-Hans 24 ns 6558 行翻译 + conventions.zh.mdx 302 行权威术语 + parity.test.ts；废 D-001/D-002/D-003，新增 D-007~D-011；写 ZH-HANS-AUDIT.md 抽样报告（结论：质量极高，可作 baseline）；STATUS.md 全篇重写为新工作面 WP-1 ~ WP-8
 - **Day 1 · 09:00（计划）** — 巡查 W1/W3a/W3b/W5/W6 是否启动；推动 W4/W7 接收新任务书并改写已落盘文件
+- **Day 1 · 11:15** — 多窗共享 working tree 引发 race（4 次被中途切分支 / 2 次 commit 落错分支），抢救 stash@{0..3} 全部产出落盘：
+  - `3b8b1252` [W0 collation] W5 server i18n audit + W7 review/PR rewrite
+  - `61dd2e0c` [W0 collation] W7 UPSTREAM_PR rewrite + STATUS Day1 self-report
+  - W4 自交 `74f9a11b` WP-3+WP-6+TERMS v2；W3a 自交 `5b713dcb` 默认 zh-Hans；W3b 自交 `19072500` WP-4 扫描
+  - 全部 stash 已 drop；vivo-i18n-zh 已 push origin
+- **Day 1 · 11:20** — **⚡ 启用 git worktree**，终结共享根目录 race。各窗专属路径：
+  - W0 `/Users/bing/Documents/opencode/Multica` （vivo-i18n-zh，trunk）
+  - W1 `../multica-w1` （feat/vivo-selfhost-zh-bootstrap）
+  - W3a `../multica-w3a` （feat/vivo-zh-default-locale）
+  - W3b `../multica-w3b` （fix/vivo-zh-leftover-en-views）
+  - W4 `../multica-w4` （fix/vivo-zh-translation-quality-audit）
+  - W5 `../multica-w5` （feat/vivo-server-i18n）
+  - W6 `../multica-w6` （feat/vivo-zh-tests，新建）
+  - W7 `../multica-w7` （feat/vivo-zh-review，新建）
+  - **强制规则**：从此各窗 `cd` 到自己专属 worktree 工作，禁止 `git checkout` 切分支，禁止在 `Multica/` 写代码（除 W0 协调文档）
