@@ -274,3 +274,53 @@ git remote 已重配：
   - [ ] W7 是否已改写 REVIEW_CHECKLIST.md
 - Day 1 18:00 collect 各窗 STATUS.md 自报
 - Day 2 09:00 视进度决定要不要 ping 岩冰汇报
+
+---
+
+# 第二轮转向通知（Day 1 · 11:25 · 强制 worktree 迁移）
+
+> 全部 7 窗共用，1 段通发。原因：Day 1 09:00–11:15 多窗共享 `Multica/` 根目录引发 4 次 race（中途被切分支 / commit 落错分支 2 次），W0 已抢救。
+
+## 全员公告
+
+```
+[W0 强制通告 · Day 1 11:25]
+
+🚨 即日起禁止在 /Users/bing/Documents/opencode/Multica/ 下做任何代码改动
+   （除 W0 协调文档外）。该目录已固化为 W0 主窗专属（vivo-i18n-zh trunk）。
+
+✅ 已为各窗建好独立 git worktree，物理路径隔离，分支自动绑定，禁止 checkout：
+
+  W1  → /Users/bing/Documents/opencode/multica-w1   (feat/vivo-selfhost-zh-bootstrap)
+  W3a → /Users/bing/Documents/opencode/multica-w3a  (feat/vivo-zh-default-locale)
+  W3b → /Users/bing/Documents/opencode/multica-w3b  (fix/vivo-zh-leftover-en-views)
+  W4  → /Users/bing/Documents/opencode/multica-w4   (fix/vivo-zh-translation-quality-audit)
+  W5  → /Users/bing/Documents/opencode/multica-w5   (feat/vivo-server-i18n)
+  W6  → /Users/bing/Documents/opencode/multica-w6   (feat/vivo-zh-tests, 新建)
+  W7  → /Users/bing/Documents/opencode/multica-w7   (feat/vivo-zh-review, 新建)
+
+强制规则:
+  1. 每窗只在自己 worktree 路径下工作, cd 进去后 git status 应直接看到自己分支
+  2. 禁止 git checkout 切到别的分支（worktree 已绑定，会报错）
+  3. 共享文档（STATUS.md / CLAIMS.md）按 §1 单写规则,只在 W0 主窗写;
+     各窗在自己 worktree 改完 push 自己分支后,在群里 @W0 合
+  4. pull 上游 trunk: 在 W0 主窗 fetch + merge upstream/main 到 vivo-i18n-zh,
+     各窗 git fetch origin && git rebase origin/vivo-i18n-zh
+
+抢救成果（trunk 已 push origin/vivo-i18n-zh @ 71a03abf）:
+  - 3b8b1252 [W0 collation] W5 audit + W7 review 第一批
+  - 61dd2e0c [W0 collation] W7 UPSTREAM_PR rewrite + STATUS Day1 自报
+  - 71a03abf [W0] worktree 启用决议
+  - 各窗自交分支: W4 74f9a11b / W3a 5b713dcb / W3b 19072500
+
+请各窗:
+  1. 在新 worktree 路径下 git status 自检, 确认绑定的分支正确
+  2. 在群里 @W0 回「收到, 已迁移」
+  3. 接续原 Day 1 任务书工作（W1 docker / W4 lint / W5 邮件 PR / 等）
+```
+
+## W0 自留补丁
+
+- Day 1 11:25 worktree 迁移已完成, 巡查时改为依次 cd 进 7 个 worktree 看 git log/status
+- W2（i18n 框架窗）已正式解散（D-010）, 人员去向待 Day 1 09:00 决断（候选: W4 翻译审计 / W7 上游 PR 走查 / W6 测试加固）
+- 风险: vivo TERMS.md v1（226 行）与 conventions.zh.mdx 多处冲突, 待 Day 1 W4 改写为「引用 conventions + vivo 增量」

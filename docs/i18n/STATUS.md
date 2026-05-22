@@ -225,7 +225,23 @@ _暂无_
 
 - **Day 0 · 21:30** — 巡查发现：W1 未启动 / W4 已交付 TERMS（部分）/ W7 已交付 CHECKLIST + REBASE 脚本；处理多窗根目录 STATUS.md 冲突；代办 git clone + 建分支；写 W0-DECISIONS v1（D-001~D-006）+ STATUS v1
 - **Day 0 · 22:00** — 核查仓库现状，发现 v0.3.5 上游已完整接入 i18next + zh-Hans 24 ns 6558 行翻译 + conventions.zh.mdx 302 行权威术语 + parity.test.ts；废 D-001/D-002/D-003，新增 D-007~D-011；写 ZH-HANS-AUDIT.md 抽样报告（结论：质量极高，可作 baseline）；STATUS.md 全篇重写为新工作面 WP-1 ~ WP-8
-- **Day 1 · 09:00（计划）** — 巡查 W1/W3a/W3b/W5/W6 是否启动；推动 W4/W7 接收新任务书并改写已落盘文件
+- **Day 1 · 09:00（实际 11:30 补做）** — worktree 启用后首次跨窗巡查（按各 worktree git log 抽查）：
+  | 窗 | 进度 | 备注 |
+  |---|---|---|
+  | W1 | ⏳ 未启动 | 分支建好但 0 commit；Day 1 必须起 docker compose |
+  | W2 | ❌ 已解散（D-010） | 待 09:00 决断转岗去向 |
+  | W3a | ✅ 5b713dcb 默认 zh-Hans 已交 | WP-2 完成，下步：等 W4 lint 出长度违规清单 |
+  | W3b | ✅ 19072500 WP-4 扫描已交 | 134 处漏网 EN 已 triage；下步：实修 high+medium 部分 |
+  | W4 | ✅ 74f9a11b WP-3+WP-6+TERMS v2+lint 脚本已交 | TERMS 改的还不彻底，已 W0 出 TERMS-CONFLICTS.md 指引下一轮 v2 |
+  | W5 | ⏳ 未启动 | WP-5 audit 已在 trunk（3b8b1252）；Day 1 起邮件模板 zh-Hans + locale 分支 |
+  | W6 | ⏳ 未启动（待解封） | feat/vivo-zh-tests 已建空分支；继续等 W1 部署 + W4 audit 落地后再发力 |
+  | W7 | ✅ 3b8b1252 + 61dd2e0c REVIEW + UPSTREAM_PR v2 已交 | 等 W4 WP-3 报告稳定后启动 cherry-pick PR-A |
+- **Day 1 · 11:35** — D-009 收口：W0 产出 `docs/i18n/TERMS-CONFLICTS.md` 90+ 条冲突清单（B 类需修 / C 类保留 / v2 目标结构 ~110 行），交付 W4 在 `multica-w4/` worktree 执行。预计 Day 2 中午 W4 交付 TERMS.md v2。
+- **Day 1 · 11:40 W2 转岗决议（待岩冰拍板）** — W2（i18n 框架窗）已废，3 个候选去向：
+  - **A. 并入 W4** — 协助 TERMS v2 改写 + parity test 跑通（最匹配 W2 原语言能力）
+  - **B. 并入 W7** — 协助上游 PR-A/B/C 走查（reviewer 缺人）
+  - **C. 接管 WP-6 文档侧** — 把 apps/docs 缺失的 .zh.mdx 补全（独立工作面，可平行）
+  - W0 推荐 **A**：W4 任务最重（TERMS v2 + WP-3 audit + lint 三件套），分担最有价值。
 - **Day 1 · 11:15** — 多窗共享 working tree 引发 race（4 次被中途切分支 / 2 次 commit 落错分支），抢救 stash@{0..3} 全部产出落盘：
   - `3b8b1252` [W0 collation] W5 server i18n audit + W7 review/PR rewrite
   - `61dd2e0c` [W0 collation] W7 UPSTREAM_PR rewrite + STATUS Day1 self-report
