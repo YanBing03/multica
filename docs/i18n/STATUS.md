@@ -159,12 +159,10 @@ _暂无_
 - ✅ 上游 fork URL 已确认：`https://github.com/YanBing03/multica`（岩冰个人 GitHub）
 
 #### Day 1 新任务书摘要（WP-8）
-1. 改写 `REVIEW_CHECKLIST.md`：删"框架与库"段，加"对齐 conventions.zh.mdx"段
-2. 改写 `UPSTREAM_PR.md`：3 个 PR 类型重定位
-   - PR-A：vivo 发现的 zh-Hans 翻译错误修订（来自 WP-3）
-   - PR-B：后端 i18n 框架（若上游没做，来自 WP-5）
-   - PR-C：apps/docs 缺失的 .zh.mdx 补全（来自 WP-6）
-3. 等 WP-3 / WP-5 / WP-6 各产出后再启动 cherry-pick
+1. ✅ 改写 `REVIEW_CHECKLIST.md`：删"框架与库"段，§1/§2 改为对齐 conventions.zh.mdx §2/§3，新增 §7 上游兼容性 + reviewer 操作模板（176 行落盘）
+2. ✅ 改写 `UPSTREAM_PR.md`：PR-A/B/C 战略重定位，三套独立描述模板，cherry-pick 6 步 checklist，git remote 已对齐 `origin = YanBing03/multica` / `upstream = multica-ai/multica`（241 行落盘）
+3. ⏳ 等 WP-3 / WP-5 / WP-6 触发后再启动 cherry-pick；W7 起手扫 apps/docs 缺失 zh.mdx（与 W4 共担 WP-6）
+4. ⏳ Day 2：阅读上游 `CONTRIBUTING.md` / PR 模板对齐规范，建 `docs/i18n/UPSTREAM_FINDINGS.md`
 
 ---
 
