@@ -21,7 +21,7 @@
 
 | 名称      | URL                                              | 说明                       |
 | --------- | ------------------------------------------------ | -------------------------- |
-| `origin`  | `git@github.com:vivo-xxx/multica.git`（待确认）  | vivo fork                  |
+| `origin`  | `https://github.com/YanBing03/multica.git`        | vivo fork（岩冰个人仓库）  |
 | `upstream`| `https://github.com/multica-ai/multica.git`      | 上游只读                   |
 
 首次配置：

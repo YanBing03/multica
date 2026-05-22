@@ -138,7 +138,7 @@ _暂无_
 #### W7 → W0 上抛已闭环
 - ✅ D-001 next-intl 与现状冲突 → W0 已撤销 D-001，改 D-007 锁 i18next
 - ✅ Apache 2.0 无 CLA → 确认无阻塞
-- ⏳ 上游 fork URL：W0 等岩冰确认 vivo 内部 GitLab/GitHub fork 地址
+- ✅ 上游 fork URL 已确认：`https://github.com/YanBing03/multica`（岩冰个人 GitHub）
 
 #### Day 1 新任务书摘要（WP-8）
 1. 改写 `REVIEW_CHECKLIST.md`：删"框架与库"段，加"对齐 conventions.zh.mdx"段
@@ -161,7 +161,7 @@ _暂无_
 | WP-5 后端 i18n 现状 | W5 | W7 上游 PR-B | ⏳ Day 0-2 | 阻塞 PR-B |
 | WP-6 docs 覆盖盘点 | W4 / W7 | W7 上游 PR-C | ⏳ Day 1-2 | 阻塞 PR-C |
 | 漏网英文清单 | W3a + W3b | W4（参考） / W7（走查） | ⏳ Day 1-3 | 软阻塞 |
-| 上游 fork URL 确认 | 岩冰 | W7 | ⏳ | 阻塞 W7 推 PR |
+| 上游 fork URL 确认 | 岩冰 | W7 | ✅ `github.com/YanBing03/multica` | 不再阻塞 |
 
 ---
 
@@ -189,7 +189,7 @@ _暂无_
 |---|---|---|---|
 | Day 0 | W4 | 7 项术语歧义 | ✅ 全部以 `conventions.zh.mdx` 为准（D-009） |
 | Day 0 | W7 | i18n 库选型未拍 | ✅ D-007 锁 i18next |
-| Day 0 | W7 | 上游 remote / CLA 未确认 | ✅ Apache 2.0 无 CLA；vivo fork URL 待岩冰确认 |
+| Day 0 | W7 | 上游 remote / CLA 未确认 | ✅ Apache 2.0 无 CLA；fork = `github.com/YanBing03/multica` |
 | Day 0 | 全员 | 多窗自我编号不一致 | ✅ D-005 W0 统一记账 |
 | Day 0 | 全员 | 根目录 STATUS.md 冲突 | ✅ D-004 收敛到 docs/i18n/STATUS.md |
 | **Day 0 22:00** | W0 | **9 窗作战核心假设崩——上游已自带 i18n** | ✅ D-007~D-011 重定义工作面 |
