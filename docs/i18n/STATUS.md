@@ -242,6 +242,7 @@ _暂无_
   - **B. 并入 W7** — 协助上游 PR-A/B/C 走查（reviewer 缺人）
   - **C. 接管 WP-6 文档侧** — 把 apps/docs 缺失的 .zh.mdx 补全（独立工作面，可平行）
   - W0 推荐 **A**：W4 任务最重（TERMS v2 + WP-3 audit + lint 三件套），分担最有价值。
+- **Day 1 · 11:45 D-012 落地** — 岩冰拍板选 A：**W2 即日并入 W4**。已发第三轮联合任务书（HANDOFF-NOTICES.md），ETA Day 2 12:00 交付 TERMS.md v2 + parity test 通过；Day 2 18:00 WP-3 审计报告 v2 同步完成。提交规则：W4 自己 `[W4] xxx`、W2 协作 `[W4/W2] xxx`。
 - **Day 1 · 11:15** — 多窗共享 working tree 引发 race（4 次被中途切分支 / 2 次 commit 落错分支），抢救 stash@{0..3} 全部产出落盘：
   - `3b8b1252` [W0 collation] W5 server i18n audit + W7 review/PR rewrite
   - `61dd2e0c` [W0 collation] W7 UPSTREAM_PR rewrite + STATUS Day1 self-report

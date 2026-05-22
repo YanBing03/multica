@@ -145,6 +145,22 @@ vivo 在 v0.3.5 之上**真正要交付**：
 | W6 E2E | `test/vivo-zh-e2e` |
 | W7 上游 PR cherry-pick | `i18n/upstream-pr-<n>`（基于 upstream/main） |
 
+## D-012 W2 解散后并入 W4（Day 1 11:45 · 岩冰拍板）
+
+**背景**：D-010 已废 W2（i18n 框架窗），因上游 v0.3.5 已自带 i18next 完整框架，W2 工作面消失。Day 1 11:40 W0 给出 3 候选（A 并 W4 / B 并 W7 / C 接 WP-6 docs），岩冰选 A。
+
+**决议**：
+
+1. W2 人员即日并入 W4（`fix/vivo-zh-translation-quality-audit`），共担 TERMS v2 改写 + parity test 跑通。
+2. W2 物理工作目录 `multica-w2` 不再单建，W2 人直接 cd 到 `multica-w4/` 与 W4 协作。
+3. 提交规则：W2 人在 commit message 用 `[W4/W2]` 前缀，便于事后追溯贡献。
+4. 共享文件单写规则不变：W4 仍是 `docs/i18n/TERMS.md` 的唯一写入者；W2 改完先在 worktree push 自己分支，再让 W4 合。
+
+**触发后续动作**：
+
+- W0 立即向 W4 + W2 发联合任务书（见 HANDOFF-NOTICES.md 第三轮）
+- W4 ETA：Day 2 中午交付 TERMS.md v2（~110 行）+ `pnpm test` parity 通过
+
 ---
 
 ## 修订历史
@@ -153,3 +169,4 @@ vivo 在 v0.3.5 之上**真正要交付**：
 |---|---|---|---|
 | v1 | Day 0 21:30 | 初版 D-001 ~ D-006 | W0 |
 | v2 | Day 0 22:00 | 核查仓库现状，废 D-001~D-003，新增 D-007~D-011 | W0 |
+| v3 | Day 1 11:45 | 新增 D-012（W2 并入 W4） | W0 + 岩冰 |

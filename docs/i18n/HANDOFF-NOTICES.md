@@ -324,3 +324,70 @@ git remote 已重配：
 - Day 1 11:25 worktree 迁移已完成, 巡查时改为依次 cd 进 7 个 worktree 看 git log/status
 - W2（i18n 框架窗）已正式解散（D-010）, 人员去向待 Day 1 09:00 决断（候选: W4 翻译审计 / W7 上游 PR 走查 / W6 测试加固）
 - 风险: vivo TERMS.md v1（226 行）与 conventions.zh.mdx 多处冲突, 待 Day 1 W4 改写为「引用 conventions + vivo 增量」
+
+---
+
+# 第三轮转向通知（Day 1 · 11:45 · W4 + W2 联合任务书）
+
+> 触发：D-012 W2 并入 W4；TERMS-CONFLICTS.md 已落 trunk
+> 收件：W4（主）+ W2（协）
+> 目标：Day 2 中午交付 TERMS.md v2
+
+## 通知正文（一段直接转发）
+
+```
+[W0 → W4 + W2 · Day 1 11:45]
+
+📣 决议 D-012：W2 即日并入 W4，共担 TERMS v2 改写 + parity test。
+   W2 物理工作目录直接用 multica-w4/，不再单开 worktree。
+
+📋 你们的 Day 1-2 任务书（替换原 W4 任务书第 1 项）：
+
+任务 A · TERMS.md v2 改写（W4 + W2 主攻，最高优）
+   工作目录: /Users/bing/Documents/opencode/multica-w4
+   分支:    fix/vivo-zh-translation-quality-audit
+   输入:    docs/i18n/TERMS-CONFLICTS.md (W0 给的指引, 90+ 冲突清单)
+            apps/docs/content/docs/developers/conventions.zh.mdx (上游权威)
+            docs/i18n/TERMS.md (现 v1, 226 行)
+   产出:    docs/i18n/TERMS.md v2 (~110 行, 按 TERMS-CONFLICTS.md §4 结构)
+   关键修订 (必须全做):
+     B-1: Issue/Skill 改回保留小写英文; Runtime 改"运行时"
+     B-2: Assignee→负责人 / Sign out→退出登录 / Loading→加载中…(带省略号)
+          Create/New 拆分; Sign out 不能简化为"退出"
+     B-3: 角色名 (owner/admin) + Issue 状态 (in_progress/blocked/done/cancelled)
+          全部保留小写英文; 删 Open 行
+     B-4: 中文引号改直引号 ""; 省略号统一 ...
+   保留 (一字不删):
+     C-1 业务派生术语 ~20 词 (Squad/Board/Provider/...)
+     C-2 conv 未覆盖 UI 词 ~18 词 (Filter/Sort/Dashboard/...)
+     C-3 状态词 (必须区分 schema 状态 vs UI 临时态语境!)
+     C-4 vivo 规则 (长度约束/数字单位空格/"你"称谓/禁语气词/错误信息正反例)
+
+任务 B · parity 测试跑通 (W2 主攻)
+   命令: pnpm --filter @multica/views test parity.test.ts
+   预期: 24 ns × zh-Hans key 完整对齐 en, 0 missing
+   若失败: 在 STATUS §2 W4 段记录缺失 key 清单, 由 W4 补译
+
+任务 C · WP-3 审计报告与 v2 同步引用 (W4 主攻)
+   现 docs/i18n/WP-3-AUDIT-REPORT.md 已是 74f9a11b 落地版
+   修订点: 把所有引用 "TERMS.md §X" 的地方更新为 v2 章节号
+   把基于 v1 错译做的审计结论 (例如说 zh-Hans 把 Issue 译成"任务"是 vivo 规范)
+   倒过来 -- v2 之后, 上游 zh-Hans 保留小写英文 issue 才是对的, vivo 反而要修
+
+提交规则:
+   W4 commit:    [W4] xxx
+   W2 协作 commit: [W4/W2] xxx
+   每天 18:00 在 STATUS §2 W4 段追加进度
+
+ETA:
+   Day 2 12:00 — TERMS.md v2 落地 + parity test 通过
+   Day 2 18:00 — WP-3 审计报告 v2 同步完成
+
+请在 multica-w4/ 下确认收到 + 接单, 然后开干。
+```
+
+## W0 自留补丁
+
+- D-012 已写入 W0-DECISIONS.md v3
+- 下次巡查 Day 1 18:00 收 W4 + W2 自报
+- 若 Day 2 12:00 W4 未交 v2，W0 可短暂介入手动补一段 (上限 30 分钟，超时再讨论)
